@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For May~Cee 💛</title>
+<title>For Mercy 💖</title>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -221,14 +221,14 @@ function toast(msg){const el=document.getElementById('toast');el.textContent=msg
 
 // ── 1. CARDS ──
 const cards=[
-  {type:'truth',text:'what\'s one thing you love about us?',hint:'voice note me your answer 🎤'},
-  {type:'dare',text:'send me a selfie right now, no filter 📸',hint:'i\'m waiting… 👀'},
+  {type:'truth',text:'what\'s one thing you love about us?',hint:' note me your answer 🎤'},
+  {type:'dare',text:'Ill ask when ready, no filter 📸',hint:'i\'m waiting… 👀'},
   {type:'truth',text:'be honest — do you miss me rn? 🥺',hint:'text me exactly how much'},
-  {type:'dare',text:'voice note me saying "mm ndo itakua sana" 😭',hint:'you literally said it already lol'},
+  {type:'dare',text:'no need to go through all "just checking what i can do when bored" 😭',hint:'you literally said it already lol'},
   {type:'action',text:'screenshot this card & send it to me',hint:'so i know you really did it'},
-  {type:'truth',text:'what were you thinking the last time we said bye?',hint:'be honest, i can handle it'},
-  {type:'dare',text:'send me a voice note of you laughing 🤣',hint:'even a fake one counts'},
-  {type:'action',text:'text me your current wallpaper 📱',hint:'show me what\'s on your screen'},
+  {type:'truth',text:'what were you thinking the last time we said bye? ile time uliishia chuo 4',hint:'be honest, i can handle it'},
+  {type:'dare',text:'am out of dares🤣but i like the fact that youre selective',hint:'even a fake one counts'},
+  {type:'action',text:'text me your current wallpaper,Najua hujachange bado 📱',hint:'show me what\'s on your screen'},
   {type:'truth',text:'describe me in 3 words only',hint:'type them to me one by one'},
 ];
 const typeColor={truth:'type-truth',dare:'type-dare',action:'type-action'};
@@ -247,10 +247,10 @@ cards.forEach((c,i)=>{
 
 // ── 2. VAULT ──
 const vaults=[
-  {label:'💛 Golden Memory',clue:'clue: the last swahili word i said to you tonight 🌙',pw:'sana',content:'that time you said goodnight and i couldn\'t stop smiling. that one was for keeps. 🌙'},
-  {label:'🥺 The Real One',clue:'clue: what i call you — first 6 letters only 😏',pw:'maycee',content:'honestly? you\'re one of the people i think about without a reason. just like that. randomly. 💜'},
-  {label:'✨ Future Us',clue:'clue: 2 words i said about next time we meet 👀',pw:'next time',content:'"next time you\'ll have the time" — i\'m holding you to that. we\'re doing everything. 🌍'},
-  {label:'🔥 The Secret',clue:'clue: the emoji you sent after "byeeee" — spell it out',pw:'star',content:'i wrote this when i was missing you and didn\'t want to say it directly. now you know. 🥺'},
+  {label:'💛 Golden Memory',clue:'clue: the last swahili word i said to you tonight 🌙',pw:'baridi in dholuo',content:'that time you said goodnight and i couldn\'t stop smiling. that one was for keeps. 🌙'},
+  {label:'🥺 The Real One',clue:'clue: what i call you — first 5 letters only 😏',pw:'mercy',content:'honestly? you\'re one of the people i think about without a reason. just like that. randomly. 💜'},
+  {label:'✨ Future Us',clue:'clue: 2 words i said last time about next time if we meet 👀',pw:'next time',content:'"next time you\'ll have the time" — i\'m holding you to that. we\'re doing everything. 🌍'},
+  {label:'🔥 The Secret',clue:'clue: the emoji you sent after "byeeee" — spell it out',pw:'hug',content:'i wrote this when i was missing you and didn\'t want to say it directly. now you know. 🥺'},
 ];
 const vaultGrid=document.getElementById('vaultGrid');
 vaults.forEach((v,i)=>{
@@ -304,14 +304,14 @@ letters.forEach((l,i)=>{
 
 // ── 4. WHEEL ──
 const segments=[
-  {label:'Voice Note 🎤',color:'#7c3aed',full:'send me a voice note saying something nice about me 🎤'},
-  {label:'Selfie 📸',color:'#c026d3',full:'send me a selfie RIGHT NOW no filter allowed 📸'},
+  {label:'Voice Note 🎤',color:'#7c3aed',full:'*had no idea about what i was creating but atleast the space is filled,send me a voice note saying something nice about me 🎤'},
+  {label:'Selfie 📸',color:'#c026d3',full:'send me yesterdays dare'},
   {label:'Truth 🤔',color:'#0ea5e9',full:'truth: what\'s one thing you\'ve never told me? text it 👀'},
-  {label:'Dare 🔥',color:'#e879a0',full:'dare: describe me in exactly 5 words and send it 🔥'},
-  {label:'Screenshot 📱',color:'#f5a623',full:'screenshot your homescreen and send it to me right now 📱'},
-  {label:'Laugh 😂',color:'#7ecba1',full:'voice note of you laughing — fake or real, i\'ll take it 😂'},
+  {label:'Dare 🔥',color:'#e879a0',full:'dare: describe me in exactly 5 words and send it 🔥No sugarcoating & filters i wanna adjust somethings'},
+  {label:'Screenshot 📱',color:'#f5a623',full:'Smile kwa kazi nmefanya kuunda hii staff😊'},
+  {label:'Laugh 😂',color:'#7ecba1',full:'is it obsession or addiction— fake or real, i\'ll take it 😂'},
   {label:'3 Words 💬',color:'#ec4899',full:'text me 3 words that describe how you feel rn 💬'},
-  {label:'Memory 🌙',color:'#6366f1',full:'tell me your fav memory of us — voice note or text 🌙'},
+  {label:'Memory 🌙',color:'#6366f1',full:'tell me your fav memory of us — text 🌙'},
 ];
 let spinning=false,currentAngle=0;
 function drawWheel(angle=0){
@@ -349,7 +349,7 @@ document.getElementById('spinBtn').addEventListener('click',()=>{
 });
 
 // ── 5. PUZZLE ──
-const puzzleDares=['send me a voice note saying my name 🥺','send me your current battery % 🔋','text me a song that reminds you of us 🎵','send a selfie with a big smile 😁','tell me one thing you appreciate about me 💜','voice note of you laughing for 3 seconds 😂','send me the last photo in your gallery 📸','describe today in one word, voice note it 🌙','text me "mm ndo itakua sana" right now 💛'];
+const puzzleDares=['Smile😊','send me your current battery % 🔋','text me a song that reminds you...🎵','send a selfie with a big smile 😁','tell me one thing you appreciate about me 💜','tell me what you think i normally intentional to gain your attention😂','smile pia hapa📸','describe today in one word,🌙','text me "the hardest truth that sometimes we fear facing" right now 💛'];
 const puzzleEmojis=['💛','⭐','🌙','✨','💜','😘','🥺','💕','🫶'];
 const bgColors=['#7c3aed','#9333ea','#c026d3','#6d28d9','#8b5cf6','#a855f7','#7c3aed','#c026d3','#9333ea'];
 let revealedPieces=0,currentDareIdx=0,puzzleStarted=false;
