@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For May~Cee 💛</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f0520;--violet:#7c3aed;--pink:#e879a0;--gold:#f5c842;--sage:#7ecba1;--paper:#fdf6ee;--glow:rgba(124,58,237,0.35)}
+body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 20%,rgba(124,58,237,0.18) 0%,transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(232,121,160,0.15) 0%,transparent 55%);min-height:100vh;font-family:'DM Sans',sans-serif;color:#f0e6ff;overflow-x:hidden}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.1;transform:scale(1)}50%{opacity:.7;transform:scale(1.4)}}
+.hero{position:relative;z-index:1;text-align:center;padding:2.8rem 1rem 1.5rem}
+.hero-emoji{font-size:2.8rem;display:inline-block;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero h1{font-family:'Caveat',cursive;font-size:clamp(2.4rem,8vw,4rem);font-weight:700;background:linear-gradient(135deg,#f9c8ff,var(--gold),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin:.3rem 0}
+.hero p{color:#c4a0e8;font-size:.95rem;letter-spacing:.04em}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;padding:.5rem 1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:2rem;padding:.45rem 1rem;font-size:.82rem;font-weight:500;color:#c4a0e8;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tab:hover{background:rgba(124,58,237,.25);border-color:var(--violet);color:#fff}
+.tab.active{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 0 18px var(--glow)}
+.section{display:none;position:relative;z-index:1;padding:1.2rem 1rem 3rem;max-width:700px;margin:0 auto;animation:fadeUp .35s ease both}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sec-title{font-family:'Caveat',cursive;font-size:1.8rem;font-weight:700;color:#f9c8ff;text-align:center;margin-bottom:.3rem}
+.sec-sub{text-align:center;color:#a07ec8;font-size:.88rem;margin-bottom:1.5rem}
+
+/* CARD FLIP */
+.flip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.flip-card{aspect-ratio:3/4;perspective:800px;cursor:pointer}
+.flip-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:1rem;backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:.7rem}
+.flip-front{background:linear-gradient(135deg,var(--violet),#c026d3);font-size:1.8rem;box-shadow:0 4px 20px rgba(124,58,237,.4);border:1px solid rgba(255,255,255,.15)}
+.flip-back{background:var(--paper);color:#1e0a2e;transform:rotateY(180deg);flex-direction:column;gap:.4rem;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.flip-back .card-type{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:1rem;margin-bottom:.2rem}
+.type-truth{background:#dbeafe;color:#1d4ed8}.type-dare{background:#fce7f3;color:#9d174d}.type-action{background:#d1fae5;color:#065f46}
+.flip-back .card-text{font-family:'Caveat',cursive;font-size:1.05rem;font-weight:600;line-height:1.3;color:#2d1b4e}
+.flip-back .send-hint{font-size:.7rem;color:#9b74c0;margin-top:.4rem;font-style:italic}
+
+/* VAULT */
+.vault-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.vault-item{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:1.2rem;padding:1.1rem;text-align:center;transition:all .25s;position:relative;overflow:hidden}
+.vault-item.unlocked{background:rgba(124,58,237,.15);border-color:rgba(249,200,255,.4)}
+.vault-lock{font-size:1.8rem;margin-bottom:.5rem;display:block}
+.vault-item.unlocked .vault-lock{display:none}
+.vault-label{font-family:'Caveat',cursive;font-size:1.05rem;color:#e2b8ff;margin-bottom:.4rem}
+.vault-clue{font-size:.75rem;color:#f5c842;font-style:italic;margin-bottom:.5rem;line-height:1.4;padding:.4rem .6rem;background:rgba(245,200,66,.1);border-radius:.5rem}
+.vault-hint{font-size:.72rem;color:#9070b8;font-style:italic}
+.vault-content{display:none;font-family:'Caveat',cursive;font-size:1.1rem;color:#f9c8ff;line-height:1.4}
+.vault-item.unlocked .vault-content{display:block}
+.vault-pw-input{width:100%;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.2);border-radius:.6rem;padding:.4rem .6rem;color:#fff;font-size:.85rem;margin-top:.5rem;text-align:center;outline:none}
+.vault-pw-input::placeholder{color:#8b6fa8}
+
+/* LETTERS */
+.letters-grid{display:grid;gap:.9rem}
+.letter{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:1.2rem;overflow:hidden;cursor:pointer;transition:all .2s}
+.letter:hover{border-color:var(--pink);background:rgba(232,121,160,.1)}
+.letter-header{display:flex;align-items:center;gap:.8rem;padding:1rem 1.1rem}
+.letter-icon{font-size:1.5rem;flex-shrink:0}
+.letter-title{font-family:'Caveat',cursive;font-size:1.15rem;color:#f9c8ff;font-weight:600}
+.letter-arrow{margin-left:auto;color:#a07ec8;transition:transform .25s;font-size:1.1rem}
+.letter.open .letter-arrow{transform:rotate(90deg)}
+.letter-body{display:none;padding:.9rem 1.1rem 1.1rem;font-size:.9rem;color:#d4b8f0;line-height:1.7;border-top:1px solid rgba(255,255,255,.07)}
+.letter.open .letter-body{display:block}
+.letter-dare{margin-top:.7rem;background:rgba(124,58,237,.2);border-radius:.8rem;padding:.6rem .9rem;font-family:'Caveat',cursive;font-size:1rem;color:var(--gold)}
+
+/* WHEEL */
+.wheel-wrap{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.wheel-container{position:relative;width:min(280px,80vw);height:min(280px,80vw)}
+canvas#wheelCanvas{border-radius:50%;box-shadow:0 0 40px var(--glow)}
+.wheel-pointer{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:2rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5));z-index:2}
+.spin-btn{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border:none;border-radius:2rem;padding:.7rem 2.2rem;font-family:'Caveat',cursive;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 20px rgba(124,58,237,.4);transition:transform .15s}
+.spin-btn:hover{transform:translateY(-2px)}.spin-btn:disabled{opacity:.5;cursor:default;transform:none}
+.spin-result{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:1.2rem;padding:1rem 1.4rem;text-align:center;min-height:80px;display:flex;align-items:center;justify-content:center;width:100%}
+.spin-result p{font-family:'Caveat',cursive;font-size:1.2rem;color:#f9c8ff;line-height:1.4}
+
+/* PUZZLE */
+.puzzle-wrap{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.puzzle-board{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:min(300px,85vw)}
+.puzzle-piece{aspect-ratio:1;border-radius:.5rem;overflow:hidden;position:relative;cursor:pointer}
+.piece-cover{position:absolute;inset:0;background:linear-gradient(135deg,var(--violet),#c026d3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:all .5s;z-index:2;border-radius:.5rem}
+.piece-cover.revealed{opacity:0;pointer-events:none}
+.puzzle-dare-card{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:1.2rem;padding:1rem 1.4rem;width:100%;text-align:center}
+.puzzle-dare-card p{font-size:.85rem;color:#a07ec8;margin-bottom:.5rem}
+.puzzle-dare-card .dare-text{font-family:'Caveat',cursive;font-size:1.15rem;color:#f9c8ff}
+.puzzle-progress{font-size:.8rem;color:#8b6fa8;margin-top:.3rem}
+
+/* WYR */
+.wyr-card{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:1.4rem;padding:1.5rem;text-align:center}
+.wyr-vs{font-size:.7rem;letter-spacing:.12em;color:#8b6fa8;text-transform:uppercase;margin:1rem 0 .5rem;display:block}
+.wyr-options{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
+.wyr-opt{background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.1);border-radius:1rem;padding:.9rem .7rem;cursor:pointer;font-family:'Caveat',cursive;font-size:1.05rem;color:#e2b8ff;transition:all .2s;line-height:1.3}
+.wyr-opt:hover{background:rgba(124,58,237,.3);border-color:var(--violet);color:#fff;transform:scale(1.03)}
+.wyr-opt.picked{background:var(--violet);border-color:var(--violet);color:#fff}
+.wyr-opt.my-pick{background:rgba(245,200,66,.15);border-color:var(--gold);color:var(--gold)}
+.wyr-reveal{display:none;margin-top:1rem;background:rgba(255,255,255,.06);border-radius:1rem;padding:.9rem;font-size:.9rem;color:#c4a0e8;line-height:1.5}
+.wyr-reveal.show{display:block;animation:fadeUp .3s ease}
+.wyr-nav{display:flex;gap:.7rem;justify-content:center;margin-top:1rem}
+.wyr-btn{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);border-radius:1rem;padding:.45rem 1.2rem;color:#c4a0e8;cursor:pointer;font-size:.88rem;transition:all .2s}
+.wyr-btn:hover{background:rgba(124,58,237,.25);border-color:var(--violet);color:#fff}
+
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--violet);color:#fff;border-radius:2rem;padding:.6rem 1.4rem;font-size:.9rem;font-weight:500;box-shadow:0 8px 30px rgba(124,58,237,.5);transition:transform .35s cubic-bezier(.17,.67,.35,1.3);z-index:999;white-space:nowrap}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+
+<div class="hero">
+  <div class="hero-emoji">💛</div>
+  <h1>Hey May~Cee</h1>
+  <p>i made you something… open everything 👀✨</p>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-sec="cards">🎴 Card Game</div>
+  <div class="tab" data-sec="vault">🔐 Secret Vault</div>
+  <div class="tab" data-sec="letters">💌 Open When</div>
+  <div class="tab" data-sec="wheel">🎰 Spin It</div>
+  <div class="tab" data-sec="puzzle">🧩 Puzzle</div>
+  <div class="tab" data-sec="wyr">💭 Would You Rather</div>
+</div>
+
+<!-- 1. CARDS -->
+<div class="section active" id="sec-cards">
+  <div class="sec-title">🎴 Truth, Dare & Actions</div>
+  <div class="sec-sub">flip a card — then text me to complete it 👀</div>
+  <div class="flip-grid" id="flipGrid"></div>
+</div>
+
+<!-- 2. VAULT -->
+<div class="section" id="sec-vault">
+  <div class="sec-title">🔐 Secret Vault</div>
+  <div class="sec-sub">each password is a clue — figure it out or ask me 😏</div>
+  <div class="vault-grid" id="vaultGrid"></div>
+</div>
+
+<!-- 3. LETTERS -->
+<div class="section" id="sec-letters">
+  <div class="sec-title">💌 Open When…</div>
+  <div class="sec-sub">only open the one that matches your mood rn</div>
+  <div class="letters-grid" id="lettersGrid"></div>
+</div>
+
+<!-- 4. WHEEL -->
+<div class="section" id="sec-wheel">
+  <div class="sec-title">🎰 Spin the Wheel</div>
+  <div class="sec-sub">whatever it lands on — you HAVE to do it 🫵</div>
+  <div class="wheel-wrap">
+    <div class="wheel-container">
+      <div class="wheel-pointer">▼</div>
+      <canvas id="wheelCanvas" width="280" height="280"></canvas>
+    </div>
+    <button class="spin-btn" id="spinBtn">spin it!</button>
+    <div class="spin-result" id="spinResult"><p style="color:#6b4fa0">spin to get your challenge… 🎲</p></div>
+  </div>
+</div>
+
+<!-- 5. PUZZLE -->
+<div class="section" id="sec-puzzle">
+  <div class="sec-title">🧩 Unlock Our Memory</div>
+  <div class="sec-sub">complete each dare to reveal a piece 💜</div>
+  <div class="puzzle-wrap">
+    <div class="puzzle-board" id="puzzleBoard"></div>
+    <div class="puzzle-dare-card">
+      <p>your current dare to unlock next piece:</p>
+      <div class="dare-text" id="puzzleDareText">tap any piece to start! 👇</div>
+      <div class="puzzle-progress" id="puzzleProgress">0 / 9 pieces revealed</div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. WYR -->
+<div class="section" id="sec-wyr">
+  <div class="sec-title">💭 Would You Rather</div>
+  <div class="sec-sub">pick one — then see what i would've picked 👀</div>
+  <div class="wyr-card">
+    <div style="font-family:'Caveat',cursive;font-size:1.05rem;color:#a07ec8" id="wyrQ"></div>
+    <span class="wyr-vs">would you rather</span>
+    <div class="wyr-options">
+      <div class="wyr-opt" id="wyrA"></div>
+      <div class="wyr-opt" id="wyrB"></div>
+    </div>
+    <div class="wyr-reveal" id="wyrReveal"></div>
+    <div class="wyr-nav"><button class="wyr-btn" id="wyrNext">next question →</button></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── LOGGING ──
+function log(type, data){
+  const key='maycee_log';
+  const logs=JSON.parse(localStorage.getItem(key)||'[]');
+  logs.push({type, data, time:new Date().toISOString()});
+  localStorage.setItem(key, JSON.stringify(logs));
+}
+
+// ── STARS ──
+(()=>{const wrap=document.getElementById('stars');for(let i=0;i<70;i++){const s=document.createElement('div');s.className='star';const sz=Math.random()*2.5+.5;s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s`;wrap.appendChild(s)}})();
+
+// ── TABS ──
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('sec-'+t.dataset.sec).classList.add('active');
+    log('tab_visit',{tab:t.dataset.sec});
+    if(t.dataset.sec==='wheel') drawWheel();
+  });
+});
+
+// ── TOAST ──
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3000)}
+
+// ── 1. CARDS ──
+const cards=[
+  {type:'truth',text:'what\'s one thing you love about us?',hint:'voice note me your answer 🎤'},
+  {type:'dare',text:'send me a selfie right now, no filter 📸',hint:'i\'m waiting… 👀'},
+  {type:'truth',text:'be honest — do you miss me rn? 🥺',hint:'text me exactly how much'},
+  {type:'dare',text:'voice note me saying "mm ndo itakua sana" 😭',hint:'you literally said it already lol'},
+  {type:'action',text:'screenshot this card & send it to me',hint:'so i know you really did it'},
+  {type:'truth',text:'what were you thinking the last time we said bye?',hint:'be honest, i can handle it'},
+  {type:'dare',text:'send me a voice note of you laughing 🤣',hint:'even a fake one counts'},
+  {type:'action',text:'text me your current wallpaper 📱',hint:'show me what\'s on your screen'},
+  {type:'truth',text:'describe me in 3 words only',hint:'type them to me one by one'},
+];
+const typeColor={truth:'type-truth',dare:'type-dare',action:'type-action'};
+const typeEmoji={truth:'🤔',dare:'🔥',action:'⚡'};
+const grid=document.getElementById('flipGrid');
+cards.forEach((c,i)=>{
+  const fc=document.createElement('div');fc.className='flip-card';
+  fc.innerHTML=`<div class="flip-inner"><div class="flip-front">${typeEmoji[c.type]}</div><div class="flip-back"><span class="card-type ${typeColor[c.type]}">${c.type}</span><span class="card-text">${c.text}</span><span class="send-hint">${c.hint}</span></div></div>`;
+  fc.addEventListener('click',()=>{
+    const flipping=!fc.classList.contains('flipped');
+    fc.classList.toggle('flipped');
+    if(flipping){log('card_flip',{index:i,type:c.type,text:c.text});toast('text me to complete this one! 💬')}
+  });
+  grid.appendChild(fc);
+});
+
+// ── 2. VAULT ──
+const vaults=[
+  {label:'💛 Golden Memory',clue:'clue: the last swahili word i said to you tonight 🌙',pw:'sana',content:'that time you said goodnight and i couldn\'t stop smiling. that one was for keeps. 🌙'},
+  {label:'🥺 The Real One',clue:'clue: what i call you — first 6 letters only 😏',pw:'maycee',content:'honestly? you\'re one of the people i think about without a reason. just like that. randomly. 💜'},
+  {label:'✨ Future Us',clue:'clue: 2 words i said about next time we meet 👀',pw:'next time',content:'"next time you\'ll have the time" — i\'m holding you to that. we\'re doing everything. 🌍'},
+  {label:'🔥 The Secret',clue:'clue: the emoji you sent after "byeeee" — spell it out',pw:'star',content:'i wrote this when i was missing you and didn\'t want to say it directly. now you know. 🥺'},
+];
+const vaultGrid=document.getElementById('vaultGrid');
+vaults.forEach((v,i)=>{
+  const el=document.createElement('div');el.className='vault-item';
+  el.innerHTML=`<span class="vault-lock">🔒</span>
+    <div class="vault-label">${v.label}</div>
+    <div class="vault-clue">${v.clue}</div>
+    <input class="vault-pw-input" placeholder="enter password…" type="text"/>
+    <div class="vault-content">${v.content}</div>`;
+  const inp=el.querySelector('.vault-pw-input');
+  inp.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){
+      const attempt=inp.value.trim().toLowerCase();
+      log('vault_attempt',{vault:v.label,attempt,correct:attempt===v.pw});
+      if(attempt===v.pw){
+        el.classList.add('unlocked');
+        inp.style.display='none';
+        el.querySelector('.vault-clue').style.display='none';
+        log('vault_unlocked',{vault:v.label});
+        toast('🔓 unlocked! 💛');
+      } else {
+        inp.style.borderColor='#e05a7a';inp.value='';
+        inp.placeholder='wrong… think harder 😏';
+        setTimeout(()=>{inp.style.borderColor='';inp.placeholder='enter password…'},2500);
+      }
+    }
+  });
+  vaultGrid.appendChild(el);
+});
+
+// ── 3. LETTERS ──
+const letters=[
+  {icon:'🌙',title:'Open when you miss me',body:'hey. i know. i miss you too — more than i\'ll say out loud tbh. but just know that every goodnight you send me, i read it like twice. so yeah. hi. 💜',dare:'dare: send me a voice note of just you saying "hi" back 🎤'},
+  {icon:'😴',title:'Open when you\'re bored',body:'bored? okay go scroll back to the first time we talked and send me your fav message from back then. go.',dare:'dare: send me 3 random photos from your gallery right now 📸'},
+  {icon:'😤',title:'Open when you\'re mad at me',body:'okay so if you\'re opening this, i probably said something dumb. i\'m sorry already. for real. you know i don\'t mean it when i\'m weird. text me so we can fix it yeah?',dare:'dare: text me exactly what\'s wrong, no sugarcoating 🙏'},
+  {icon:'🥱',title:'Open when you can\'t sleep',body:'it\'s late and you\'re awake and so honestly… same. weird how that works. text me. let\'s be awake together for a bit.',dare:'dare: tell me the last thing you thought about before opening this 🌙'},
+  {icon:'💛',title:'Open when you need a smile',body:'you\'re literally one of those people that makes any day better just by being in it. i hope you know that. mm ndo itakua sana. 😘',dare:'dare: send me a voice note of you laughing at anything right now 😭'},
+  {icon:'✈️',title:'Open when we\'re far',body:'distance is annoying but it\'s also proof that this isn\'t just convenient. we keep talking anyway. that means something. next time — we\'re making it count.',dare:'dare: tell me one thing you\'d do if i was there right now 👀'},
+];
+const lettersGrid=document.getElementById('lettersGrid');
+letters.forEach((l,i)=>{
+  const el=document.createElement('div');el.className='letter';
+  el.innerHTML=`<div class="letter-header"><span class="letter-icon">${l.icon}</span><span class="letter-title">${l.title}</span><span class="letter-arrow">›</span></div><div class="letter-body">${l.body}<div class="letter-dare">🔥 ${l.dare}</div></div>`;
+  el.querySelector('.letter-header').addEventListener('click',()=>{
+    const opening=!el.classList.contains('open');
+    el.classList.toggle('open');
+    if(opening){log('letter_opened',{title:l.title});toast('now complete the dare! 🔥')}
+  });
+  lettersGrid.appendChild(el);
+});
+
+// ── 4. WHEEL ──
+const segments=[
+  {label:'Voice Note 🎤',color:'#7c3aed',full:'send me a voice note saying something nice about me 🎤'},
+  {label:'Selfie 📸',color:'#c026d3',full:'send me a selfie RIGHT NOW no filter allowed 📸'},
+  {label:'Truth 🤔',color:'#0ea5e9',full:'truth: what\'s one thing you\'ve never told me? text it 👀'},
+  {label:'Dare 🔥',color:'#e879a0',full:'dare: describe me in exactly 5 words and send it 🔥'},
+  {label:'Screenshot 📱',color:'#f5a623',full:'screenshot your homescreen and send it to me right now 📱'},
+  {label:'Laugh 😂',color:'#7ecba1',full:'voice note of you laughing — fake or real, i\'ll take it 😂'},
+  {label:'3 Words 💬',color:'#ec4899',full:'text me 3 words that describe how you feel rn 💬'},
+  {label:'Memory 🌙',color:'#6366f1',full:'tell me your fav memory of us — voice note or text 🌙'},
+];
+let spinning=false,currentAngle=0;
+function drawWheel(angle=0){
+  const canvas=document.getElementById('wheelCanvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d');const W=canvas.width,cx=W/2,cy=W/2,r=cx-4;
+  ctx.clearRect(0,0,W,W);const slice=2*Math.PI/segments.length;
+  segments.forEach((s,i)=>{
+    const start=angle+i*slice,end=start+slice;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,end);ctx.closePath();
+    ctx.fillStyle=s.color;ctx.fill();ctx.strokeStyle='rgba(255,255,255,.15)';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(start+slice/2);ctx.textAlign='right';
+    ctx.fillStyle='#fff';ctx.font=`bold ${W<260?11:13}px DM Sans`;ctx.fillText(s.label,r-10,5);ctx.restore();
+  });
+  ctx.beginPath();ctx.arc(cx,cy,22,0,2*Math.PI);ctx.fillStyle='#0f0520';ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=2;ctx.stroke();
+  ctx.fillStyle='#f9c8ff';ctx.font='bold 13px DM Sans';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('💛',cx,cy);
+}
+document.getElementById('spinBtn').addEventListener('click',()=>{
+  if(spinning)return;spinning=true;document.getElementById('spinBtn').disabled=true;
+  document.getElementById('spinResult').innerHTML=`<p style="color:#6b4fa0">spinning… 🎲</p>`;
+  const totalRad=(1440+Math.random()*360)*Math.PI/180;const dur=3500;const start=performance.now();const startAngle=currentAngle;
+  function animate(now){
+    const t=Math.min((now-start)/dur,1);const ease=1-Math.pow(1-t,4);
+    currentAngle=startAngle+totalRad*ease;drawWheel(currentAngle);
+    if(t<1){requestAnimationFrame(animate);return;}
+    spinning=false;document.getElementById('spinBtn').disabled=false;
+    const slice=2*Math.PI/segments.length;
+    const norm=(((-Math.PI/2)-currentAngle)%(2*Math.PI)+2*Math.PI)%(2*Math.PI);
+    const idx=Math.floor(norm/slice)%segments.length;const seg=segments[idx];
+    document.getElementById('spinResult').innerHTML=`<p>${seg.full}</p>`;
+    log('wheel_spin',{result:seg.label,full:seg.full});
+    toast('you got: '+seg.label+' — text me when done! 💬');
+  }
+  requestAnimationFrame(animate);
+});
+
+// ── 5. PUZZLE ──
+const puzzleDares=['send me a voice note saying my name 🥺','send me your current battery % 🔋','text me a song that reminds you of us 🎵','send a selfie with a big smile 😁','tell me one thing you appreciate about me 💜','voice note of you laughing for 3 seconds 😂','send me the last photo in your gallery 📸','describe today in one word, voice note it 🌙','text me "mm ndo itakua sana" right now 💛'];
+const puzzleEmojis=['💛','⭐','🌙','✨','💜','😘','🥺','💕','🫶'];
+const bgColors=['#7c3aed','#9333ea','#c026d3','#6d28d9','#8b5cf6','#a855f7','#7c3aed','#c026d3','#9333ea'];
+let revealedPieces=0,currentDareIdx=0,puzzleStarted=false;
+const board=document.getElementById('puzzleBoard');
+for(let i=0;i<9;i++){
+  const piece=document.createElement('div');piece.className='puzzle-piece';
+  piece.innerHTML=`<div style="width:100%;height:100%;background:${bgColors[i]};display:flex;align-items:center;justify-content:center;font-size:2rem">${puzzleEmojis[i]}</div><div class="piece-cover" id="cover-${i}">🔒</div>`;
+  piece.addEventListener('click',()=>{
+    if(!puzzleStarted){
+      puzzleStarted=true;
+      document.getElementById('cover-0').classList.add('revealed');
+      revealedPieces=1;currentDareIdx=1;
+      document.getElementById('puzzleDareText').textContent=puzzleDares[1];
+      document.getElementById('puzzleProgress').textContent='1 / 9 pieces revealed';
+      log('puzzle_start',{});toast('first piece free! earn the rest 😏');return;
+    }
+    const cover=document.getElementById('cover-'+i);
+    if(cover.classList.contains('revealed')){toast('already revealed 💛');return;}
+    cover.classList.add('revealed');revealedPieces++;
+    log('puzzle_piece',{piece:i,dare:puzzleDares[currentDareIdx]});
+    currentDareIdx=Math.min(currentDareIdx+1,puzzleDares.length-1);
+    document.getElementById('puzzleProgress').textContent=`${revealedPieces} / 9 pieces revealed`;
+    if(revealedPieces<9){document.getElementById('puzzleDareText').textContent=puzzleDares[currentDareIdx];toast('piece unlocked! 🔥 next dare 👆')}
+    else{document.getElementById('puzzleDareText').textContent='you did it!! 🎉 text me "all done" for a surprise 💛';log('puzzle_complete',{});toast('🎉 puzzle complete!! text me now!')}
+  });
+  board.appendChild(piece);
+}
+
+// ── 6. WYR ──
+const wyrQs=[
+  {q:'for us specifically…',a:'stay up all night talking',b:'sleep and dream about each other',myPick:'a',reveal:'i\'d stay up. sleep can wait when the convo is good. 💬'},
+  {q:'if we hung out…',a:'watch movies and do nothing',b:'go somewhere random and explore',myPick:'b',reveal:'explore obviously — i want to see how you are outside of a screen 👀'},
+  {q:'for real though…',a:'receive a long heartfelt text',b:'receive a short "thinking of you"',myPick:'a',reveal:'the long one. i want to know what\'s in your head. 💜'},
+  {q:'hard one…',a:'always know what the other is thinking',b:'always know what the other is feeling',myPick:'b',reveal:'feelings. thoughts can be explained — feelings you have to understand. 🥺'},
+  {q:'if you had to…',a:'go one week without texting me',b:'go one week without seeing my name anywhere',myPick:'b',reveal:'the second one is literally impossible for me lol 😭'},
+  {q:'honestly…',a:'be the one who texts first always',b:'be the one who always replies last',myPick:'a',reveal:'i\'d rather text first. at least i know i\'m thinking about you. 💛'},
+];
+let wyrIdx=0,wyrPicked=false;
+function loadWyr(){
+  wyrPicked=false;const q=wyrQs[wyrIdx%wyrQs.length];
+  document.getElementById('wyrQ').textContent=q.q;
+  document.getElementById('wyrA').textContent=q.a;document.getElementById('wyrA').className='wyr-opt';
+  document.getElementById('wyrB').textContent=q.b;document.getElementById('wyrB').className='wyr-opt';
+  document.getElementById('wyrReveal').className='wyr-reveal';document.getElementById('wyrReveal').innerHTML='';
+}
+function pickWyr(pick){
+  if(wyrPicked)return;wyrPicked=true;
+  const q=wyrQs[wyrIdx%wyrQs.length];
+  document.getElementById('wyr'+pick.toUpperCase()).classList.add('picked');
+  document.getElementById('wyr'+(pick==='a'?'B':'A')).style.opacity='.4';
+  document.getElementById('wyr'+q.myPick.toUpperCase()).classList.add('my-pick');
+  const match=pick===q.myPick;
+  log('wyr_pick',{question:q.q,picked:pick==='a'?q.a:q.b,myPick:q.myPick==='a'?q.a:q.b,matched:match});
+  const reveal=document.getElementById('wyrReveal');
+  reveal.innerHTML=`<strong>${match?'✅ we matched!':'❌ we didn\'t match lol'}</strong><br><em>i would\'ve picked: ${q.myPick==='a'?q.a:q.b}</em><br><br>${q.reveal}${match?'<br><br>💛 text me "we matched" 😏':'<br><br>👀 text me your reason'}`;
+  reveal.classList.add('show');
+  toast(match?'we matched!! text me 💛':'we didn\'t match — text me why 👀');
+}
+document.getElementById('wyrA').addEventListener('click',()=>pickWyr('a'));
+document.getElementById('wyrB').addEventListener('click',()=>pickWyr('b'));
+document.getElementById('wyrNext').addEventListener('click',()=>{wyrIdx++;loadWyr()});
+loadWyr();drawWheel();
+</script>
+</body>
+</html>
